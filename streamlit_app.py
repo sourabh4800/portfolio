@@ -33,7 +33,7 @@ def send_email(name, email, message):
 st.title("🚀 Welcome to My Portfolio! 🌟")
 
 # Add an image to the sidebar
-image_path = "pic.jpeg"
+image_path = "pic.png"
 if os.path.exists(image_path):
     st.sidebar.image(image_path, use_column_width=True)
 else:
