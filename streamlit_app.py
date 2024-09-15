@@ -2,6 +2,7 @@ import streamlit as st
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import os
 
 # Email credentials (use environment variables or a secrets manager in production)
 EMAIL_ADDRESS = "your_email@example.com"
@@ -32,14 +33,19 @@ def send_email(name, email, message):
 st.title("🚀 Welcome to My Portfolio!")
 
 # Add an image to the sidebar
-# Add an image to the sidebar
-st.sidebar.image("/home/cse/Desktop/Projects/Portfolio/pic.jpeg", use_column_width=True)
+image_path = "pic.jpeg"
+if os.path.exists(image_path):
+    st.sidebar.image(image_path, use_column_width=True)
+else:
+    st.sidebar.error("Image not found. Please check the file path or upload an image.")
+    uploaded_file = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+    if uploaded_file is not None:
+        st.sidebar.image(uploaded_file, use_column_width=True)
 
 # Add a larger panda emoji with text, centered
 st.sidebar.markdown("<div style='text-align: center; font-size: 50px;'>🐼</div>", unsafe_allow_html=True)
 
-
-
+# Rest of your Streamlit app code
 st.sidebar.title("Navigation")
 section = st.sidebar.radio("Select a section:", ["Introduction", "Education", "Skills", "Projects", "Contact Information"])
 
@@ -73,9 +79,9 @@ elif section == "Projects":
 elif section == "Contact Information":
     st.header("Contact Information")
     st.write("""
-    - Email: [sourabhsingh4800@gmail.com](mailto:sourabhsingh4800@gmail.com)
-    - LinkedIn: [Sourabh Singh](https://www.linkedin.com/in/sourabhsingh4800/)
-    - GitHub: [sourabh4800](https://github.com/sourabh4800)
+    - Email: [your.email@example.com](mailto:your.email@example.com)
+    - LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/your-linkedin-profile)
+    - GitHub: [Your GitHub Profile](https://github.com/your-github-profile)
     """)
 
     st.subheader("Contact Form")
