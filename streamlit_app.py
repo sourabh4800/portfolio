@@ -116,7 +116,15 @@ elif section == "Education":
     """)
 elif section == "Skills":
     st.header("🛠️ Skills ")
-
+    with st.expander("Soft Skills"):
+        st.write("""
+        - Communication
+        - Teamwork and Collaboration
+        - Problem-Solving
+        - Adaptability
+        - Leadership
+        """)
+    
     with st.expander("Programming Languages"):
         st.write("""
         - Python
