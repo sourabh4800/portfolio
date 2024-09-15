@@ -53,7 +53,7 @@ section = st.sidebar.radio("Select a section:", ["Introduction", "Education", "S
 if section == "Introduction":
     st.header("Introduction")
     st.write("""
-    Hello! I am Sourabh Singh, a recent graduate with a passion for [Your Field]. 
+    Hello! I am Sourabh Singh. 
     I am excited to start my career and contribute to innovative projects.
     """)
 elif section == "Education":
